@@ -16,13 +16,12 @@
                 <div id="sectionRecherche">
                     <form class="barreRecherche">
                         <input type="text" placeholder="Rechercher un film" v-model="recherche" />
-                        <input type="submit" value="Rechercher">
                     </form>
                     
                    
                 </div>
                 <div class="movieList" >
-                    <div class="movie" v-for="movie in movies.results" v-if="movie != null" :key="movie.id" >
+                    <div class="movie" v-for="movie in movies.results" v-if="(movie != null)&&(movie.title.startsWith(recherche))" :key="movie.id" >
                         <div class="posterImage">
                             <img v-if="movie.poster_path != null" :src="lienPoster(movie.poster_path)" :alt="movie.title">
                         </div>
@@ -43,11 +42,12 @@
 			const app = new Vue({
 				el: "#app",
 				data: {
-					recherche: "",
+					recherche: '',
                     film: null,
                     movie: null,
                     movies: [],
                     lienGeneriquePoster : "http://image.tmdb.org/t/p/original",
+                    compteur: 2,
 					
 				},
 

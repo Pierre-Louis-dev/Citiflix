@@ -70,22 +70,7 @@
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
         }
     }
-    input[type="submit"]{
-        width: 100%;
-        max-width: 300px;
-        font-family: Gill Sans, sans-serif;
-        background-color:#DC143C;
-        padding: 16px;
-        border-radius: 8px;
-        color: #FDD835;
-        font-size: 20px;
-        text-transform: uppercase;
-        transition: 0.4s;
-
-        &:active {
-            background-color: #FF8A80;
-        }
-    }
+    
 
     
   }
