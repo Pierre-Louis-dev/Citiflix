@@ -13,6 +13,7 @@
             <header>
                 <a href="/index.html"><h1><span>Citi</span>Flix</h1></a>
             </header>
+            <section>
                 <div id="sectionRecherche">
                     <form class="barreRecherche">
                         <input type="text" placeholder="Rechercher un film" v-model="recherche" />
@@ -50,6 +51,10 @@
                         
 
                 </div>
+            </section>
+            <footer>
+                {{ copyright }}
+            </footer>
                     
 		</div>
 
@@ -88,7 +93,7 @@
 					copyright() {
 						const currentYear = new Date().getFullYear()
 
-						return `Copyright Pierre-Louis-Dev ${currentYear}`
+						return `Copyright Pierre-Louis-Dev ${currentYear} ©`
 					}
                     
 				},
