@@ -17,23 +17,43 @@
                     <form class="barreRecherche">
                         <input type="text" placeholder="Rechercher un film" v-model="recherche" />
                     </form>
+                   <!-- <div class="checkboxes">
+                        <form class="genres">
+                            <span class="checkbox">
+                                <label for="drama">Drame</label>
+                                <input type="checkbox" id="drama">
+                            </span>
+                            <span class="checkbox">
+                                <label for="drama">Drame</label>
+                                <input type="checkbox" id="drama">
+                            </span>
+                            <span class="checkbox">
+                                <label for="drama">Drame</label>
+                                <input type="checkbox" id="drama">
+                            </span>
+                        </form>
+                    </div> -->
+                    
+                    
                     
                    
                 </div>
-                <div class="movieList" >
-                    <div class="movie" v-for="movie in movies.results" v-if="(movie != null)&&(movie.title.startsWith(recherche))" :key="movie.id" >
-                        <div class="posterImage">
-                            <img v-if="movie.poster_path != null" :src="lienPoster(movie.poster_path)" :alt="movie.title">
-                        </div>
-                        <div class="detail">
-                            <h3> {{ movie.title }} </h3>
-                            <p class="description"> {{ movie.overview }} </p>
+                <div class="movieList">
+                        <div class="movie" v-for="movie in movies" v-if="(movie != null)&&(movie.title.startsWith(recherche))" :key="movie.id" >
+                            <div class="posterImage">
+                                <img v-if="movie.poster_path != null" :src="lienPoster(movie.poster_path)" :alt="movie.title">
+                            </div>
+                            <div class="detail">
+                                <h3> {{ movie.title }} </h3>
+                                <p class="description"> {{ movie.overview }} </p>
+
+                            </div>
 
                         </div>
-
-                    </div>
+                        
 
                 </div>
+                    
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -47,17 +67,21 @@
                     movie: null,
                     movies: [],
                     lienGeneriquePoster : "http://image.tmdb.org/t/p/original",
-                    compteur: 2,
 					
 				},
 
                 mounted (){
-                            axios.get('https://api.themoviedb.org/3/movie/popular?api_key=745b3605a8c8bb41a5be062e7928a979&page=2')
+
+                            for (compteur=1 ; compteur<10 ; compteur++){
+                                axios.get("https://api.themoviedb.org/3/movie/popular?api_key=745b3605a8c8bb41a5be062e7928a979&page="+compteur)
                             .then(result => {
-                                this.movies = result.data
+                                console.log(result)
+                                this.movies = this.movies.concat(result.data.results)
                                 console.log(this.movies)
                             })
                             .catch(error => console.log(error));
+                            }
+                            
                             
                             
                     

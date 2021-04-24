@@ -9,12 +9,13 @@
     }
 }
   
-  body {
+body {
     background-color: #FFFFF0;
-  }
+    }
   
   a {
     text-decoration: none;
+
   }
 
   header {
@@ -50,31 +51,28 @@
         border: none;
         outline: none;
         background: none;
+        }   
+        input[type="text"]{
+            width: 100%;
+            color: white;
+            background-color: #2F4F4F;
+            font-size: 20px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: 0.4s;
 
-    }
-    input[type="text"]{
-        width: 100%;
-        color: white;
-        background-color: #2F4F4F;
-        font-size: 20px;
-        padding: 10px 16px;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        transition: 0.4s;
+            &::placeholder {
+                color: rgb(231, 231, 218);
+            }
 
-        &::placeholder {
-            color: rgb(231, 231, 218);
+            &:focus {
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+            }
         }
-
-        &:focus {
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
-        }
     }
-    
 
-    
-  }
-  .movieList{
+.movieList{
     display: flex;
     flex-wrap: wrap;
     margin: 0px 8px;
@@ -118,12 +116,12 @@
             }
         }
     }
-    @media only screen and (min-device-width: 600px){
+    @media only screen and (min-width: 600px){
         .movie{
             max-width: 33%;
         }
     }
-    @media only screen and (min-device-width: 1000px){
+    @media only screen and (min-width: 1000px){
         .movie{
             max-width: 25%;
         }
